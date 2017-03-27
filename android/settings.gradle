@@ -1,0 +1,3 @@
+rootProject.name = 'Glance'
+
+include ':app'
