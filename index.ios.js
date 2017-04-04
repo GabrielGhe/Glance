@@ -32,23 +32,23 @@ export default class Glance extends Component {
                     <View style={{padding: 10}}>
                         <TextInput
                           style={{height: 40}}
-                          placeholder="Type here to translate!"
+                          placeholder="Type your question"
                           onChangeText={(text) => this.setState({text})}
                         />
-                        <Text style={{padding: 10, fontSize: 42}}>
-                          {this.state.text}
-                        </Text>
                     </View>
+
+                    <View style={{
+                      margin: 20,
+                      height: 1,
+                      backgroundColor: 'powderblue'
+                    }}></View>
 
                     <View style={{padding: 10}}>
                         <TextInput
                           style={{height: 40}}
-                          placeholder="Type here to translate!"
+                          placeholder="Type your answer"
                           onChangeText={(text) => this.setState({text})}
                         />
-                        <Text style={{padding: 10, fontSize: 42}}>
-                          {this.state.text}
-                        </Text>
                     </View>
                 </View>
             </View>
