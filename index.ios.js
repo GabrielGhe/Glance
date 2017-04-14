@@ -6,12 +6,15 @@
 
 import React, { Component } from 'react';
 import {
+  Animated,
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  TextInput
+  ScrollView,
+  View
 } from 'react-native';
+
+import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
 
 export default class Glance extends Component {
     constructor(props) {
@@ -21,7 +24,7 @@ export default class Glance extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <ScrollView style={{flex: 1}}>
                 <View style={{height: 50, backgroundColor: 'powderblue'}} />
 
                 <View style={{
@@ -29,10 +32,10 @@ export default class Glance extends Component {
                   flexDirection: 'column'
                 }}>
 
-                    <View style={{padding: 10}}>
-                        <TextInput
-                          style={{height: 40}}
-                          placeholder="Type your question"
+                    <View style={{padding: 20}}>
+                        <AutoGrowingTextInput
+                          style={{ height: 40, fontSize: 20}}
+                          placeholder="Type Question"
                           onChangeText={(text) => this.setState({text})}
                         />
                     </View>
@@ -43,15 +46,15 @@ export default class Glance extends Component {
                       backgroundColor: 'powderblue'
                     }}></View>
 
-                    <View style={{padding: 10}}>
-                        <TextInput
-                          style={{height: 40}}
-                          placeholder="Type your answer"
+                    <View style={{padding: 20}}>
+                        <AutoGrowingTextInput
+                          style={{height: 40, fontSize: 20}}
+                          placeholder="Type Answer"
                           onChangeText={(text) => this.setState({text})}
                         />
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
