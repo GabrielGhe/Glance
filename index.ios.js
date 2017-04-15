@@ -4,6 +4,7 @@
  * @flow
  */
 
+import Dimensions from 'Dimensions';
 import React, { Component } from 'react';
 import {
   Animated,
@@ -14,16 +15,34 @@ import {
   View
 } from 'react-native';
 
+
 import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
+
+// https://www.youtube.com/watch?v=xDlfrcM6YBk
 
 export default class Glance extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: ''};
+        this.state = {
+            text: '',
+            isBottom: false
+        };
     }
 
-    _onScroll(e) {
+    _onScroll = (e) => {
+        var { layoutMeasurement, contentOffset, contentSize } = e.nativeEvent;
+        var slideAmount = 50;
+        var screenSize = Math.max(contentSize.height, layoutMeasurement.height);
+        var isBottom = layoutMeasurement.height + contentOffset.y >= screenSize + slideAmount;
+        this.setState({
+            isBottom
+        });
+    }
 
+    _onScrollLetGo = (e) => {
+        if (this.state.isBottom) {
+            console.log('Should save');
+        }
     }
 
     render() {
@@ -33,6 +52,8 @@ export default class Glance extends Component {
 
                 <ScrollView style={styles.container}
                   onScroll={this._onScroll}
+                  onScrollEndDrag={this._onScrollLetGo}
+                  scrollEventThrottle={400}
                 >
                     <View style={{
                       flex: 1,
@@ -61,7 +82,6 @@ export default class Glance extends Component {
                             />
                         </View>
                     </View>
-
                 </ScrollView>
             </View>
         );
