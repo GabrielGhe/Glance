@@ -9,7 +9,9 @@
   "dependencies": {
     "react": "15.4.2",
     "react-native": "0.42.3",
-    "react-native-autogrow-textinput": "^3.0.1"
+    "react-native-autogrow-textinput": "^3.0.1",
+    "react-native-keyboard-aware-scrollview": "^1.1.5",
+    "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
